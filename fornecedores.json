@@ -1,0 +1,50 @@
+{
+    "FORN-VOITA": {
+        "nome": "Vo Ita",
+        "bloqueado": false
+    },
+    "FORN-JOSEBA": {
+        "nome": "José BA",
+        "bloqueado": false
+    },
+    "FORN-NRD": {
+        "nome": "NRD",
+        "bloqueado": false
+    },
+    "FORN-SUINOSJ": {
+        "nome": "Suinos Jucurutu",
+        "bloqueado": false
+    },
+    "FORN-PAULINO": {
+        "nome": "Paulino",
+        "bloqueado": false
+    },
+    "FORN-BRF": {
+        "nome": "BRF",
+        "bloqueado": false
+    },
+    "FORN-FREEZER": {
+        "nome": "Freezer",
+        "bloqueado": false
+    },
+    "FORN-FRIATO": {
+        "nome": "Friato",
+        "bloqueado": false
+    },
+    "FORN-AURORA": {
+        "nome": "Aurora",
+        "bloqueado": false
+    },
+    "FORN-KKEIJO": {
+        "nome": "Karne Keijo",
+        "bloqueado": false
+    },
+    "FORN-BF": {
+        "nome": "Bom Fim",
+        "bloqueado": false
+    },
+    "FORN-BOMTODO": {
+        "nome": "Bom Todo",
+        "bloqueado": false
+    }
+}
