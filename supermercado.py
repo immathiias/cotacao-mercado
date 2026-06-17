@@ -4,6 +4,16 @@ import json
 import os
 
 st.set_page_config(page_title="Painel Supermercado - Cotações", layout="wide")
+st.markdown(
+    """
+    <style>
+        [data-testid="stSidebar"], [data-testid="stSidebarCollapseButton"] {
+            display: none !important;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 DADOS_FILE = "cotacoes.csv"
 FORN_FILE = "fornecedores.json"
@@ -27,7 +37,7 @@ if not st.session_state.autenticado:
     st.subheader("Acesso Restrito ao Supermercado")
     senha = st.text_input("Introduza a senha de acesso:", type="password")
     if st.button("Entrar"):
-        if senha == "SOBRINHO2026":
+        if senha == st.secrets["senha_painel"]:
             st.session_state.autenticado = True
             st.rerun()
         else:
