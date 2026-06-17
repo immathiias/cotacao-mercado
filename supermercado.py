@@ -119,13 +119,31 @@ if os.path.exists(DADOS_FILE):
 else:
     st.info("Aguardando os primeiros envios dos fornecedores.")
 
-# Reset Semanal
+# Reset Semanal Otimizado para a Nuvem
 st.markdown("---")
-if st.button("🔴 Reiniciar Todas as Cotações e Desbloquear Vendedores"):
+if st.button("🔴 Reiniciar Todas as Cotações e Desbloquear Vendedores", type="secondary"):
+    # 1. Eliminar o ficheiro de cotações se ele existir
     if os.path.exists(DADOS_FILE):
-        os.remove(DADOS_FILE)
+        try:
+            os.remove(DADOS_FILE)
+        except Exception as e:
+            st.error(f"Erro ao eliminar cotações: {e}")
+
+    # 2. Limpar a lista de produtos da semana
+    if os.path.exists(PRODUTOS_FILE):
+        try:
+            os.remove(PRODUTOS_FILE)
+        except Exception as e:
+            st.error(f"Erro ao limpar produtos: {e}")
+
+    # 3. Desbloquear todos os fornecedores no JSON
     for k in fornecedores:
         fornecedores[k]["bloqueado"] = False
     salvar_json(FORN_FILE, fornecedores)
+    
+    # 4. Forçar a limpeza do estado interno do Streamlit para atualizar o ecrã
+    if "df_cotacoes" in st.session_state:
+        del st.session_state["df_cotacoes"]
+        
     st.success("Dados limpos e acessos libertados para a nova semana!")
     st.rerun()
