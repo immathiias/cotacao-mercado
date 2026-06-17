@@ -4,6 +4,16 @@ import json
 import os
 
 st.set_page_config(page_title="Envio de Cotação de Frios")
+st.markdown(
+    """
+    <style>
+        [data-testid="stSidebar"], [data-testid="stSidebarCollapseButton"] {
+            display: none !important;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 PRODUTOS_FILE = "produtos.txt"
 DADOS_FILE = "cotacoes.csv"
